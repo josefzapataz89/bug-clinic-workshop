@@ -3,12 +3,13 @@
 module.exports = scenario;
 
 function scenario(log, cb) {
-    let value = 97;
-    log.info({value: value}, 'scenario');
 
     function start() {
         process.nextTick(thing);
     }
+
+    let value = 97;
+    log.info({value: value}, 'scenario');
 
     function foo() {
         value *= 13;
@@ -23,10 +24,11 @@ function scenario(log, cb) {
         value &= 255;
         log.info({value: value}, 'racer');
         // setTimeout(foo, 0);
-        process.nextTick(thing);
+        process.nextTick(foo);
     }
 
-    value = 213;
+    // value = 213;
+    log.error('bad assignment on same tick')
     log.info({value: value}, 'scenario');
 
     function thing() {
