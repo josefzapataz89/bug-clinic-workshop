@@ -28,7 +28,7 @@ function scenario(log, cb) {
     }
 
     // value = 213;
-    log.error('bad assignment on same tick')
+    log.error('bad assignment on same block')
     log.info({value: value}, 'scenario');
 
     function thing() {
